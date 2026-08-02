@@ -28,7 +28,7 @@ export const BottomNav: React.FC = () => {
               variant="outline"
               size="md"
               onClick={prevPage}
-              className="flex-1"
+              className="flex-1 shadow-soft"
             >
               <ArrowLeft className="w-5 h-5" />
               Kembali
@@ -37,7 +37,7 @@ export const BottomNav: React.FC = () => {
               variant="primary"
               size="md"
               onClick={nextPage}
-              className="flex-2"
+              className="flex-2 shadow-soft font-black"
             >
               Lanjut ke Materi
               <ArrowRight className="w-5 h-5" />
@@ -53,7 +53,7 @@ export const BottomNav: React.FC = () => {
               variant="outline"
               size="md"
               onClick={prevPage}
-              className="flex-1"
+              className="flex-1 shadow-soft"
             >
               <ArrowLeft className="w-5 h-5" />
               Kembali
@@ -62,7 +62,7 @@ export const BottomNav: React.FC = () => {
               variant="success"
               size="md"
               onClick={nextPage}
-              className="flex-2 font-black"
+              className="flex-2 shadow-soft font-black"
             >
               <Play className="w-5 h-5 fill-current" />
               Mulai Bermain
@@ -77,7 +77,7 @@ export const BottomNav: React.FC = () => {
               variant="outline"
               size="sm"
               onClick={prevPage}
-              className="px-3"
+              className="px-3 shadow-soft"
             >
               <ArrowLeft className="w-4 h-4" />
               Kembali
@@ -86,9 +86,9 @@ export const BottomNav: React.FC = () => {
               variant="secondary"
               size="sm"
               onClick={() => goToPage(23)}
-              className="flex-1 text-xs sm:text-sm"
+              className="flex-1 text-xs sm:text-sm shadow-soft font-extrabold"
             >
-              Lihat Petunjuk
+              Petunjuk
             </Button>
             <Button
               variant="success"
@@ -97,7 +97,7 @@ export const BottomNav: React.FC = () => {
                 validateCrossword();
                 goToPage(25);
               }}
-              className="flex-1 text-xs sm:text-sm font-black"
+              className="flex-1 text-xs sm:text-sm font-black shadow-soft"
             >
               <CheckCircle className="w-4 h-4" />
               Cek Jawaban
@@ -112,7 +112,7 @@ export const BottomNav: React.FC = () => {
               variant="outline"
               size="md"
               onClick={() => goToPage(22)}
-              className="flex-1"
+              className="flex-1 shadow-soft"
             >
               <ArrowLeft className="w-5 h-5" />
               Grid TTS
@@ -121,9 +121,9 @@ export const BottomNav: React.FC = () => {
               variant="primary"
               size="md"
               onClick={() => goToPage(24)}
-              className="flex-1"
+              className="flex-1 shadow-soft font-black"
             >
-              Petunjuk Menurun
+              Menurun
               <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
@@ -136,7 +136,7 @@ export const BottomNav: React.FC = () => {
               variant="outline"
               size="md"
               onClick={() => goToPage(23)}
-              className="flex-1"
+              className="flex-1 shadow-soft"
             >
               <ArrowLeft className="w-5 h-5" />
               Mendatar
@@ -148,7 +148,7 @@ export const BottomNav: React.FC = () => {
                 validateCrossword();
                 goToPage(25);
               }}
-              className="flex-1 font-black"
+              className="flex-1 font-black shadow-soft"
             >
               <CheckCircle className="w-5 h-5" />
               Cek Jawaban
@@ -166,7 +166,7 @@ export const BottomNav: React.FC = () => {
                 resetCrossword();
                 goToPage(22);
               }}
-              className="flex-1"
+              className="flex-1 shadow-soft"
             >
               <RotateCcw className="w-5 h-5" />
               Reset TTS
@@ -175,7 +175,7 @@ export const BottomNav: React.FC = () => {
               variant="primary"
               size="md"
               onClick={() => goToPage(26)}
-              className="flex-1 font-black"
+              className="flex-1 font-black shadow-soft"
             >
               Lihat Hasil
               <ArrowRight className="w-5 h-5" />
@@ -190,7 +190,7 @@ export const BottomNav: React.FC = () => {
               variant="outline"
               size="md"
               onClick={() => goToPage(22)}
-              className="flex-1"
+              className="flex-1 shadow-soft"
             >
               <RotateCcw className="w-5 h-5" />
               Ulangi TTS
@@ -199,7 +199,7 @@ export const BottomNav: React.FC = () => {
               variant="primary"
               size="md"
               onClick={nextPage}
-              className="flex-1 font-black"
+              className="flex-1 font-black shadow-soft"
             >
               Lanjut Refleksi
               <ArrowRight className="w-5 h-5" />
@@ -214,7 +214,7 @@ export const BottomNav: React.FC = () => {
               variant="outline"
               size="md"
               onClick={prevPage}
-              className="flex-1"
+              className="flex-1 shadow-soft"
             >
               <ArrowLeft className="w-5 h-5" />
               Kembali
@@ -223,7 +223,7 @@ export const BottomNav: React.FC = () => {
               variant="success"
               size="md"
               onClick={nextPage}
-              className="flex-1 font-black"
+              className="flex-1 font-black shadow-soft"
             >
               <CheckCircle className="w-5 h-5" />
               Selesai
@@ -238,7 +238,7 @@ export const BottomNav: React.FC = () => {
               variant="outline"
               size="md"
               onClick={() => goToPage(1)}
-              className="flex-1"
+              className="flex-1 shadow-soft"
             >
               <Home className="w-5 h-5" />
               Home
@@ -247,7 +247,7 @@ export const BottomNav: React.FC = () => {
               variant="primary"
               size="md"
               onClick={resetAllProgress}
-              className="flex-1"
+              className="flex-1 shadow-soft font-black"
             >
               <RotateCcw className="w-5 h-5" />
               Belajar Lagi
@@ -262,7 +262,7 @@ export const BottomNav: React.FC = () => {
               variant="outline"
               size="md"
               onClick={prevPage}
-              className="flex-1"
+              className="flex-1 shadow-soft"
               aria-label="Halaman Sebelumnya"
             >
               <ArrowLeft className="w-5 h-5" />
@@ -272,7 +272,7 @@ export const BottomNav: React.FC = () => {
               variant="primary"
               size="md"
               onClick={nextPage}
-              className="flex-1"
+              className="flex-1 shadow-soft font-black"
               aria-label="Halaman Berikutnya"
             >
               Lanjut
@@ -284,8 +284,10 @@ export const BottomNav: React.FC = () => {
   };
 
   return (
-    <footer className="w-full shrink-0 px-4 py-3 bg-[#FFF8E7]/95 backdrop-blur-md sticky bottom-0 z-30 border-t border-amber-200/60 shadow-[0_-4px_16px_rgba(0,0,0,0.05)] flex items-center justify-between">
-      {renderButtons()}
+    <footer className="w-full shrink-0 sticky bottom-0 z-40 px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom,1rem))] bg-gradient-to-t from-[#FFF8E7] via-[#FFF8E7]/95 to-[#FFF8E7]/40 backdrop-blur-md border-t border-amber-200/50">
+      <div className="w-full flex items-center justify-between">
+        {renderButtons()}
+      </div>
     </footer>
   );
 };

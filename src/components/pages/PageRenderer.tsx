@@ -115,7 +115,7 @@ export const PageRenderer: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="w-full min-h-full"
+          className="w-full min-h-full pb-28 sm:pb-24"
         >
           {renderCurrentPage()}
         </motion.div>
