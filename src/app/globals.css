@@ -1,0 +1,120 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --primary: #F59E0B;
+    --primary-dark: #D97706;
+    --secondary: #3B82F6;
+    --secondary-dark: #2563EB;
+    --background: #FFF8E7;
+    --surface: #FFFFFF;
+    --success: #22C55E;
+    --success-dark: #16A34A;
+    --warning: #FACC15;
+    --error: #EF4444;
+    --error-dark: #DC2626;
+    --text-primary: #2D3748;
+    --text-secondary: #6B7280;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: var(--font-nunito), system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    user-select: none;
+    touch-action: manipulation;
+  }
+}
+
+/* Custom scrollbars for clean educational app feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E2E8F0;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #CBD5E1;
+}
+
+/* Subtle focus ring for accessibility (WCAG AA) */
+*:focus-visible {
+  outline: 3px solid #F59E0B;
+  outline-offset: 2px;
+}
+
+/* Card and container shadows */
+.shadow-soft {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-floating {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-inner-soft {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* 3D button press effect */
+.btn-3d-primary {
+  box-shadow: 0 4px 0 #D97706;
+  transition: all 0.1s ease-in-out;
+}
+.btn-3d-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #D97706;
+}
+.btn-3d-primary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #D97706;
+}
+
+.btn-3d-secondary {
+  box-shadow: 0 4px 0 #2563EB;
+  transition: all 0.1s ease-in-out;
+}
+.btn-3d-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #2563EB;
+}
+.btn-3d-secondary:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #2563EB;
+}
+
+.btn-3d-success {
+  box-shadow: 0 4px 0 #16A34A;
+  transition: all 0.1s ease-in-out;
+}
+.btn-3d-success:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #16A34A;
+}
+.btn-3d-success:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #16A34A;
+}
+
+.btn-3d-white {
+  box-shadow: 0 4px 0 #E2E8F0;
+  transition: all 0.1s ease-in-out;
+}
+.btn-3d-white:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 0 #E2E8F0;
+}
+.btn-3d-white:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #E2E8F0;
+}
