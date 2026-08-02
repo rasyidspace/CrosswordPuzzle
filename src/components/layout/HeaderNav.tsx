@@ -25,7 +25,7 @@ export const HeaderNav: React.FC = () => {
 
   return (
     <>
-      <header className="w-full px-4 pt-3 pb-2 bg-[#FFF8E7]/95 backdrop-blur-xs sticky top-0 z-30 flex flex-col gap-2 border-b border-amber-200/40">
+      <header className="w-full shrink-0 px-4 pt-3 pb-2 bg-[#FFF8E7]/95 backdrop-blur-md sticky top-0 z-30 flex flex-col gap-2 border-b border-amber-200/60 shadow-2xs">
         <div className="flex items-center justify-between gap-3">
           {/* Home / Restart */}
           {!isOpeningPage ? (

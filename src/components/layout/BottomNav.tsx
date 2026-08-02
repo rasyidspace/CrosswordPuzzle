@@ -284,7 +284,7 @@ export const BottomNav: React.FC = () => {
   };
 
   return (
-    <footer className="w-full px-4 py-3 bg-[#FFF8E7]/95 backdrop-blur-xs sticky bottom-0 z-30 border-t border-amber-200/40 flex items-center justify-between">
+    <footer className="w-full shrink-0 px-4 py-3 bg-[#FFF8E7]/95 backdrop-blur-md sticky bottom-0 z-30 border-t border-amber-200/60 shadow-[0_-4px_16px_rgba(0,0,0,0.05)] flex items-center justify-between">
       {renderButtons()}
     </footer>
   );

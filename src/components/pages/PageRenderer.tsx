@@ -107,7 +107,7 @@ export const PageRenderer: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 w-full overflow-y-auto">
+    <div className="flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden overscroll-contain">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentPage}
