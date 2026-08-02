@@ -107,7 +107,7 @@ export const PageRenderer: React.FC = () => {
   };
 
   return (
-    <div className="flex-1 min-h-0 w-full overflow-y-auto overflow-x-hidden overscroll-contain">
+    <div className="flex-1 w-full">
       <AnimatePresence mode="wait">
         <motion.div
           key={currentPage}
@@ -115,7 +115,7 @@ export const PageRenderer: React.FC = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.2, ease: "easeInOut" }}
-          className="w-full min-h-full pb-28 sm:pb-24"
+          className="w-full min-h-full"
         >
           {renderCurrentPage()}
         </motion.div>

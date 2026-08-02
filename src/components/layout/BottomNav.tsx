@@ -284,10 +284,8 @@ export const BottomNav: React.FC = () => {
   };
 
   return (
-    <footer className="w-full shrink-0 sticky bottom-0 z-40 px-4 pt-3 pb-[max(1rem,env(safe-area-inset-bottom,1rem))] bg-gradient-to-t from-[#FFF8E7] via-[#FFF8E7]/95 to-[#FFF8E7]/40 backdrop-blur-md border-t border-amber-200/50">
-      <div className="w-full flex items-center justify-between">
-        {renderButtons()}
-      </div>
+    <footer className="w-full px-4 py-3 bg-[#FFF8E7] border-t border-amber-200/40 flex items-center justify-between mt-auto">
+      {renderButtons()}
     </footer>
   );
 };

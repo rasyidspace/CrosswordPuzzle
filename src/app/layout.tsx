@@ -32,7 +32,6 @@ export const viewport: Viewport = {
   initialScale: 1,
   maximumScale: 1,
   userScalable: false,
-  viewportFit: "cover",
   themeColor: "#FFF8E7",
 };
 
@@ -43,7 +42,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="id" className={`${nunito.variable} antialiased`}>
-      <body className="h-[100dvh] w-full bg-[#FFF8E7] text-[#2D3748] flex justify-center items-center p-0 sm:p-4 selection:bg-amber-200 overflow-hidden">
+      <body className="min-h-screen bg-[#FFF8E7] text-[#2D3748] flex justify-center items-center p-0 sm:p-4 selection:bg-amber-200">
         <LearningProvider>{children}</LearningProvider>
       </body>
     </html>
