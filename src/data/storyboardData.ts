@@ -517,7 +517,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     answer: 'BOROBUDUR',
     clue: 'Candi Buddha terbesar di Indonesia.',
     startX: 0,
-    startY: 0,
+    startY: 1,
     length: 9,
   },
   {
@@ -526,8 +526,8 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     orientation: 'across',
     answer: 'KERATON',
     clue: 'Tempat tinggal raja pada masa kerajaan.',
-    startX: 1,
-    startY: 4,
+    startX: 0,
+    startY: 3,
     length: 7,
   },
   {
@@ -536,8 +536,8 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     orientation: 'across',
     answer: 'PRASASTI',
     clue: 'Tulisan pada batu.',
-    startX: 0,
-    startY: 8,
+    startX: 3,
+    startY: 10,
     length: 8,
   },
   {
@@ -546,8 +546,8 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     orientation: 'across',
     answer: 'GAMELAN',
     clue: 'Alat musik tradisional Jawa.',
-    startX: 3,
-    startY: 6,
+    startX: 0,
+    startY: 8,
     length: 7,
   },
   {
@@ -556,8 +556,8 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     orientation: 'across',
     answer: 'SAMAN',
     clue: 'Tarian tradisional dari Aceh.',
-    startX: 4,
-    startY: 10,
+    startX: 5,
+    startY: 5,
     length: 5,
   },
 
@@ -568,8 +568,8 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     orientation: 'down',
     answer: 'CANDI',
     clue: 'Bangunan tempat ibadah Hindu dan Buddha.',
-    startX: 2,
-    startY: 2,
+    startX: 1,
+    startY: 7,
     length: 5,
   },
   {
@@ -578,8 +578,8 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     orientation: 'down',
     answer: 'ARCA',
     clue: 'Patung peninggalan kerajaan.',
-    startX: 0,
-    startY: 6,
+    startX: 3,
+    startY: 3,
     length: 4,
   },
   {
@@ -588,8 +588,8 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     orientation: 'down',
     answer: 'MASJID',
     clue: 'Tempat ibadah umat Islam.',
-    startX: 5,
-    startY: 5,
+    startX: 10,
+    startY: 6,
     length: 6,
   },
   {
@@ -598,8 +598,8 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     orientation: 'down',
     answer: 'PRAMBANAN',
     clue: 'Candi Hindu terbesar di Indonesia.',
-    startX: 7,
-    startY: 1,
+    startX: 8,
+    startY: 0,
     length: 9,
   },
   {
@@ -608,15 +608,15 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     orientation: 'down',
     answer: 'SEJARAH',
     clue: 'Peristiwa masa lampau yang dipelajari.',
-    startX: 4,
-    startY: 4,
+    startX: 5,
+    startY: 5,
     length: 7,
   },
 ];
 
 export const CROSSWORD_GRID_DIMENSIONS = {
-  rows: 11,
-  cols: 10,
+  rows: 12,
+  cols: 11,
 };
 
 export const REFLECTION_OPTIONS: ReflectionOption[] = [

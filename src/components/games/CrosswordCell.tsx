@@ -40,7 +40,10 @@ export const CrosswordCell: React.FC<CrosswordCellProps> = ({
     );
   }
 
-  const numberLabel = cell.acrossNum || cell.downNum;
+  const numberLabel =
+    cell.acrossNum && cell.downNum && cell.acrossNum !== cell.downNum
+      ? `${cell.acrossNum},${cell.downNum}`
+      : cell.acrossNum || cell.downNum;
 
   let bgStyle = "bg-white border-amber-300 text-[#2D3748]";
   if (cell.status === "correct") {
