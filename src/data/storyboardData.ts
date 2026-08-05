@@ -97,8 +97,8 @@ export const APERSEPSI_DATA = {
     message: 'Bangunan tersebut merupakan peninggalan sejarah yang harus kita lestarikan.',
   },
   feedbackError: {
-    title: 'Tidak apa-apa.',
-    message: 'Mari kita pelajari bersama pada materi berikutnya.',
+    title: 'Yuk, coba lagi!',
+    message: 'Candi dan masjid bersejarah dibangun ratusan tahun lalu. Pilih jawaban "Zaman dahulu" untuk melanjutkan ya.',
   },
 };
 

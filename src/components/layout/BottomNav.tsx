@@ -3,7 +3,20 @@
 import React from "react";
 import { useLearning } from "@/context/LearningContext";
 import { Button } from "@/components/ui/Button";
-import { ArrowLeft, ArrowRight, RotateCcw, CheckCircle, Play, Home } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  RotateCcw,
+  CheckCircle,
+  Play,
+  Home,
+  Lock,
+} from "lucide-react";
+import {
+  LATIHAN_SINGKAT_QUESTIONS,
+  MATCHING_GAME_ITEMS,
+  FINAL_QUIZ_QUESTIONS,
+} from "@/data/storyboardData";
 
 export const BottomNav: React.FC = () => {
   const {
@@ -14,7 +27,56 @@ export const BottomNav: React.FC = () => {
     resetAllProgress,
     resetCrossword,
     validateCrossword,
+    apersepsiAnswer,
+    latihanAnswers,
+    matchingMatched,
+    finalQuizAnswers,
   } = useLearning();
+
+  // Check if current page has an active question/game requirement that must be answered correctly
+  const isNextDisabled = React.useMemo(() => {
+    switch (currentPage) {
+      case 4: // Apersepsi: 'opt-1' is 'Zaman dahulu' (correct answer)
+        return apersepsiAnswer !== "opt-1";
+
+      case 9: // Latihan Singkat: all 3 questions must be correct
+        return !LATIHAN_SINGKAT_QUESTIONS.every(
+          (q) => latihanAnswers[q.id] === q.correctIndex
+        );
+
+      case 19: // Matching Mini Game: all 6 pairs must be matched
+        return matchingMatched.length < MATCHING_GAME_ITEMS.length;
+
+      case 29: // Final Quiz: all questions must be correct
+        return !FINAL_QUIZ_QUESTIONS.every(
+          (q) => finalQuizAnswers[q.id] === q.correctIndex
+        );
+
+      default:
+        return false;
+    }
+  }, [
+    currentPage,
+    apersepsiAnswer,
+    latihanAnswers,
+    matchingMatched.length,
+    finalQuizAnswers,
+  ]);
+
+  const getDisabledHint = () => {
+    switch (currentPage) {
+      case 4:
+        return "Jawab pertanyaan apersepsi dengan benar untuk lanjut";
+      case 9:
+        return "Jawab semua soal latihan dengan benar untuk lanjut";
+      case 19:
+        return `Cocokkan semua pasangan (${matchingMatched.length}/${MATCHING_GAME_ITEMS.length}) untuk lanjut`;
+      case 29:
+        return "Jawab semua soal kuis dengan benar untuk menyelesaikan";
+      default:
+        return null;
+    }
+  };
 
   // Page 1 and Page 30 have custom in-page buttons
   if (currentPage === 1) return null;
@@ -223,10 +285,20 @@ export const BottomNav: React.FC = () => {
               variant="success"
               size="md"
               onClick={nextPage}
+              disabled={isNextDisabled}
               className="flex-1 font-black shadow-soft"
             >
-              <CheckCircle className="w-5 h-5" />
-              Selesai
+              {isNextDisabled ? (
+                <>
+                  <Lock className="w-4 h-4 mr-1" />
+                  Selesai
+                </>
+              ) : (
+                <>
+                  <CheckCircle className="w-5 h-5" />
+                  Selesai
+                </>
+              )}
             </Button>
           </div>
         );
@@ -272,11 +344,21 @@ export const BottomNav: React.FC = () => {
               variant="primary"
               size="md"
               onClick={nextPage}
+              disabled={isNextDisabled}
               className="flex-1 shadow-soft font-black"
               aria-label="Halaman Berikutnya"
             >
-              Lanjut
-              <ArrowRight className="w-5 h-5" />
+              {isNextDisabled ? (
+                <>
+                  <Lock className="w-4 h-4 mr-1" />
+                  Lanjut
+                </>
+              ) : (
+                <>
+                  Lanjut
+                  <ArrowRight className="w-5 h-5" />
+                </>
+              )}
             </Button>
           </div>
         );
@@ -284,8 +366,16 @@ export const BottomNav: React.FC = () => {
   };
 
   return (
-    <footer className="w-full px-4 py-3 bg-[#FFF8E7] border-t border-amber-200/40 flex items-center justify-between mt-auto">
-      {renderButtons()}
+    <footer className="w-full px-4 py-3 bg-[#FFF8E7] border-t border-amber-200/40 flex flex-col gap-2 mt-auto">
+      {isNextDisabled && getDisabledHint() && (
+        <div className="w-full text-center text-[11px] font-black text-amber-900 bg-amber-100/90 py-1.5 px-3 rounded-xl border border-amber-300 flex items-center justify-center gap-1.5 shadow-2xs animate-pulse">
+          <Lock className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+          <span>{getDisabledHint()}</span>
+        </div>
+      )}
+      <div className="w-full flex items-center justify-between">
+        {renderButtons()}
+      </div>
     </footer>
   );
 };
