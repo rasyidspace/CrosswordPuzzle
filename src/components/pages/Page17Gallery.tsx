@@ -40,17 +40,26 @@ export const Page17Gallery: React.FC = () => {
             key={item.id}
             type="button"
             onClick={() => setSelectedItem(item)}
-            className="flex flex-col items-center text-center p-3 rounded-2xl bg-white border-2 border-amber-200 hover:border-amber-400 hover:shadow-soft transition-all cursor-pointer shadow-2xs group"
+            className="flex flex-col items-center text-center p-2.5 rounded-2xl bg-white border-2 border-amber-200 hover:border-amber-400 hover:shadow-soft transition-all cursor-pointer shadow-2xs group overflow-hidden"
           >
-            <div className="w-12 h-12 rounded-2xl bg-amber-50 group-hover:bg-amber-100 flex items-center justify-center text-3xl mb-2 transition-colors">
-              {item.icon}
+            <div className="w-full h-24 rounded-xl bg-amber-50 group-hover:bg-amber-100 flex items-center justify-center mb-2 overflow-hidden border border-amber-200/60 relative">
+              {item.image ? (
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              ) : (
+                <span className="text-3xl">{item.icon}</span>
+              )}
             </div>
-            <span className="text-xs font-extrabold text-[#2D3748] leading-tight">
+            <span className="text-xs font-extrabold text-[#2D3748] leading-tight px-1 line-clamp-2">
               {item.name}
             </span>
-            <span className="text-[10px] text-amber-700 font-bold mt-1 inline-flex items-center gap-0.5">
-              <MapPin className="w-3 h-3" />
-              {item.lokasi.split(",")[0]}
+            <span className="text-[10px] text-amber-700 font-bold mt-1 inline-flex items-center gap-0.5 px-1">
+              <MapPin className="w-3 h-3 shrink-0" />
+              <span className="truncate">{item.lokasi.split(",")[0]}</span>
             </span>
           </button>
         ))}
@@ -65,6 +74,16 @@ export const Page17Gallery: React.FC = () => {
       >
         {selectedItem && (
           <div className="flex flex-col gap-3 text-sm text-[#2D3748]">
+            {selectedItem.image && (
+              <div className="w-full h-36 rounded-xl overflow-hidden border border-amber-200 relative shadow-2xs">
+                <img
+                  src={selectedItem.image}
+                  alt={selectedItem.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
+
             <div className="flex items-center gap-1.5 text-xs text-amber-800 font-bold bg-amber-50 p-2.5 rounded-xl border border-amber-200">
               <MapPin className="w-4 h-4 text-amber-600 shrink-0" />
               <span>Lokasi: {selectedItem.lokasi}</span>

@@ -38,15 +38,24 @@ export const Page4Apersepsi: React.FC = () => {
           {APERSEPSI_DATA.buildings.map((b) => (
             <div
               key={b.name}
-              className="flex flex-col items-center p-3 rounded-2xl bg-amber-50/80 border border-amber-200 text-center shadow-2xs"
+              className="flex flex-col items-center p-2 rounded-2xl bg-amber-50/80 border border-amber-200 text-center shadow-2xs overflow-hidden"
             >
-              <span className="text-3xl mb-1 filter drop-shadow-xs">
-                {b.icon}
-              </span>
-              <span className="text-xs font-black text-[#2D3748] leading-tight">
+              <div className="w-full h-20 sm:h-24 rounded-xl overflow-hidden mb-2 bg-amber-100/60 border border-amber-200/60 relative flex items-center justify-center">
+                {b.image ? (
+                  <img
+                    src={b.image}
+                    alt={b.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <span className="text-3xl filter drop-shadow-xs">{b.icon}</span>
+                )}
+              </div>
+              <span className="text-xs font-black text-[#2D3748] leading-tight px-1">
                 {b.name}
               </span>
-              <span className="text-[10px] text-slate-500 font-semibold mt-0.5">
+              <span className="text-[10px] text-slate-500 font-semibold mt-0.5 px-1">
                 {b.location}
               </span>
             </div>

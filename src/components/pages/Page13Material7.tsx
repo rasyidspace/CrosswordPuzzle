@@ -35,17 +35,30 @@ export const Page13Material7: React.FC = () => {
         {mat.subsections?.slice(0, 2).map((sub, idx) => (
           <Card
             key={idx}
-            className="p-4 bg-white border-amber-200 shadow-soft flex flex-col gap-1"
+            className="p-3.5 bg-white border-amber-200 shadow-soft flex flex-col gap-2 overflow-hidden"
           >
-            <div className="flex items-center gap-2">
-              <span className="text-xl">📜</span>
-              <h3 className="text-sm font-extrabold text-amber-900">
-                {sub.title}
-              </h3>
+            <div className="flex items-start gap-3">
+              {sub.image ? (
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-amber-50 border border-amber-200 shrink-0">
+                  <img
+                    src={sub.image}
+                    alt={sub.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              ) : (
+                <span className="text-xl">📜</span>
+              )}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-extrabold text-amber-900">
+                  {sub.title}
+                </h3>
+                <p className="text-xs font-bold text-slate-600 leading-relaxed mt-0.5">
+                  {sub.description}
+                </p>
+              </div>
             </div>
-            <p className="text-xs font-bold text-slate-600 leading-relaxed pl-7">
-              {sub.description}
-            </p>
           </Card>
         ))}
       </div>

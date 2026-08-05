@@ -31,11 +31,25 @@ export const Page15Material9: React.FC = () => {
         {mat.subsections?.map((sub, idx) => (
           <Card
             key={idx}
-            className="p-4 bg-white border-amber-200 shadow-soft flex flex-col gap-2"
+            className="p-3.5 bg-white border-amber-200 shadow-soft flex flex-col gap-2 overflow-hidden"
           >
-            <h3 className="text-sm font-extrabold text-amber-900">
-              {sub.title}
-            </h3>
+            <div className="flex items-start gap-3">
+              {sub.image && (
+                <div className="w-16 h-16 rounded-xl overflow-hidden bg-amber-50 border border-amber-200 shrink-0">
+                  <img
+                    src={sub.image}
+                    alt={sub.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div className="flex-1 min-w-0">
+                <h3 className="text-sm font-extrabold text-amber-900">
+                  {sub.title}
+                </h3>
+              </div>
+            </div>
             <div className="space-y-1.5 pt-1 border-t border-amber-100">
               {sub.examples?.map((ex, exIdx) => (
                 <div key={exIdx} className="flex items-center gap-2">

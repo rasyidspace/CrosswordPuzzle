@@ -101,7 +101,7 @@ export const MatchingGame: React.FC = () => {
                 transition={{ duration: 0.3 }}
                 onClick={() => handleSelectIcon(item.id)}
                 disabled={isMatched}
-                className={`flex items-center justify-center p-3 rounded-2xl border-2 transition-all min-h-[58px] cursor-pointer ${
+                className={`flex items-center justify-center p-2 rounded-2xl border-2 transition-all min-h-[64px] cursor-pointer overflow-hidden relative ${
                   isMatched
                     ? "bg-emerald-100/70 border-emerald-400 text-emerald-800 opacity-80 cursor-default"
                     : isSelected
@@ -109,11 +109,24 @@ export const MatchingGame: React.FC = () => {
                     : "bg-white border-amber-200 hover:border-amber-400 shadow-xs"
                 }`}
               >
-                <span className="text-3xl filter drop-shadow-xs">
-                  {item.icon}
-                </span>
+                {item.image ? (
+                  <div className="w-12 h-12 rounded-xl overflow-hidden bg-amber-50 border border-amber-200/60 shrink-0">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                ) : (
+                  <span className="text-3xl filter drop-shadow-xs">
+                    {item.icon}
+                  </span>
+                )}
                 {isMatched && (
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 ml-2" />
+                  <div className="absolute right-2 top-2 bg-emerald-500 text-white rounded-full p-0.5 shadow-xs">
+                    <CheckCircle2 className="w-4 h-4" />
+                  </div>
                 )}
               </motion.button>
             );

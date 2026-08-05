@@ -62,10 +62,30 @@ export const APERSEPSI_DATA = {
   title: 'Tahukah Kamu?',
   question: 'Apakah kamu pernah melihat bangunan seperti gambar di bawah ini?',
   buildings: [
-    { name: 'Candi Borobudur', icon: '🏯', location: 'Magelang, Jawa Tengah' },
-    { name: 'Candi Prambanan', icon: '🛕', location: 'Sleman, D.I. Yogyakarta' },
-    { name: 'Keraton Yogyakarta', icon: '👑', location: 'Kota Yogyakarta' },
-    { name: 'Masjid Agung Demak', icon: '🕌', location: 'Demak, Jawa Tengah' },
+    {
+      name: 'Candi Borobudur',
+      icon: '🏯',
+      image: '/images/candi-borobudur.webp',
+      location: 'Magelang, Jawa Tengah',
+    },
+    {
+      name: 'Candi Prambanan',
+      icon: '🛕',
+      image: '/images/candi-prambanan.jpg',
+      location: 'Sleman, D.I. Yogyakarta',
+    },
+    {
+      name: 'Keraton Yogyakarta',
+      icon: '👑',
+      image: '/images/keraton-yogyakarta.jpg',
+      location: 'Kota Yogyakarta',
+    },
+    {
+      name: 'Masjid Agung Demak',
+      icon: '🕌',
+      image: '/images/masjid-agung-demak.jpg',
+      location: 'Demak, Jawa Tengah',
+    },
   ],
   followUpQuestion: 'Menurutmu, bangunan tersebut dibuat pada ....',
   options: [
@@ -99,12 +119,12 @@ export const MATERIALS: Record<number, MaterialContent> = {
       {
         title: 'Contoh Peninggalan Sejarah',
         examples: [
-          '🏯 Candi',
-          '🕌 Masjid Bersejarah',
-          '👑 Keraton',
-          '🗿 Arca',
-          '🪨 Prasasti',
-          '📖 Naskah Kuno',
+          'Candi',
+          'Masjid Bersejarah',
+          'Keraton',
+          'Arca',
+          'Prasasti',
+          'Naskah Kuno',
         ],
       },
     ],
@@ -129,10 +149,10 @@ export const MATERIALS: Record<number, MaterialContent> = {
       {
         title: 'Ilustrasi Peninggalan',
         examples: [
-          '📜 Buku kuno',
-          '🏯 Candi',
-          '🪨 Prasasti',
-          '👑 Keraton',
+          'Buku kuno',
+          'Candi',
+          'Prasasti',
+          'Keraton',
         ],
       },
     ],
@@ -154,18 +174,22 @@ export const MATERIALS: Record<number, MaterialContent> = {
       {
         title: '1. Bangunan',
         examples: ['Candi', 'Masjid', 'Keraton'],
+        image: '/images/candi-prambanan.jpg',
       },
       {
         title: '2. Benda',
         examples: ['Arca', 'Prasasti', 'Gamelan'],
+        image: '/images/arca-ganesha.jpg',
       },
       {
         title: '3. Tradisi dan Budaya',
         examples: ['Tari Saman', 'Upacara Sekaten', 'Tari Piring'],
+        image: '/images/tari-saman.jpg',
       },
       {
         title: '4. Naskah Kuno',
         examples: ['Negarakertagama', 'Babad Tanah Jawi'],
+        image: '/images/kitab-negarakertagama.jpg',
       },
     ],
     conclusion:
@@ -182,17 +206,20 @@ export const MATERIALS: Record<number, MaterialContent> = {
         title: '🏯 Candi',
         description: 'Tempat ibadah agama Hindu dan Buddha.',
         examples: ['Borobudur (Buddha)', 'Prambanan (Hindu)'],
+        image: '/images/candi-borobudur.webp',
       },
       {
         title: '🕌 Masjid Bersejarah',
         description: 'Tempat ibadah umat Islam yang memiliki nilai sejarah.',
         examples: ['Masjid Agung Demak'],
+        image: '/images/masjid-agung-demak.jpg',
       },
       {
         title: '👑 Keraton',
         description:
           'Tempat tinggal raja sekaligus pusat pemerintahan kerajaan.',
         examples: ['Keraton Yogyakarta', 'Keraton Surakarta'],
+        image: '/images/keraton-yogyakarta.jpg',
       },
     ],
     didYouKnow:
@@ -212,17 +239,20 @@ export const MATERIALS: Record<number, MaterialContent> = {
         description:
           'Arca adalah patung yang dibuat untuk menggambarkan tokoh tertentu atau dewa pada masa Hindu dan Buddha.',
         examples: ['Arca Ganesha', 'Arca Durga'],
+        image: '/images/arca-ganesha.jpg',
       },
       {
         title: '2. Prasasti',
         description:
           'Prasasti adalah tulisan yang dipahat pada batu atau logam yang berisi informasi penting tentang suatu kerajaan.',
         examples: ['Prasasti Ciaruteun', 'Prasasti Kedukan Bukit'],
+        image: '/images/prasasti-ciaruteun.jpg',
       },
       {
         title: '3. Gamelan',
         description:
           'Gamelan merupakan alat musik tradisional yang telah digunakan sejak zaman kerajaan.',
+        image: '/images/gamelan-jawa.jpg',
       },
     ],
     didYouKnow:
@@ -241,16 +271,19 @@ export const MATERIALS: Record<number, MaterialContent> = {
         title: '🎉 Sekaten',
         description:
           'Perayaan budaya yang dilaksanakan di Yogyakarta dan Surakarta.',
+        image: '/images/upacara-sekaten.jpg',
       },
       {
         title: '🎭 Tari Saman',
         description:
           'Tarian tradisional dari Aceh yang dilakukan secara berkelompok dengan gerakan ritmis yang kompak.',
+        image: '/images/tari-saman.jpg',
       },
       {
         title: '🥁 Tari Piring',
         description:
           'Tarian tradisional dari Sumatera Barat yang menggunakan piring sebagai properti utama.',
+        image: '/images/tari-piring.jpg',
       },
     ],
     quote:
@@ -269,11 +302,13 @@ export const MATERIALS: Record<number, MaterialContent> = {
         title: '📚 Negarakertagama',
         description:
           'Kitab yang ditulis oleh Mpu Prapanca pada masa Kerajaan Majapahit.',
+        image: '/images/kitab-negarakertagama.jpg',
       },
       {
         title: '📚 Babad Tanah Jawi',
         description:
           'Menceritakan sejarah silsilah raja dan kerajaan-kerajaan di Pulau Jawa.',
+        image: '/images/babad-tanah-jawi.png',
       },
       {
         title: '💡 Manfaat Naskah Kuno',
@@ -295,10 +330,12 @@ export const MATERIALS: Record<number, MaterialContent> = {
       {
         title: '🕉 Masa Hindu',
         examples: ['Candi Prambanan', 'Arca Siwa/Ganesha', 'Prasasti Ciaruteun'],
+        image: '/images/candi-prambanan.jpg',
       },
       {
         title: '☸ Masa Buddha',
         examples: ['Candi Borobudur', 'Patung Buddha', 'Relief Karmawibhangga'],
+        image: '/images/candi-borobudur.webp',
       },
     ],
     conclusion:
@@ -319,15 +356,16 @@ export const MATERIALS: Record<number, MaterialContent> = {
           'Seni Kaligrafi',
           'Tradisi Upacara Sekaten',
         ],
+        image: '/images/masjid-agung-demak.jpg',
       },
       {
         title: '🏛 Peninggalan Masa Kolonial',
         examples: [
-          'Benteng Pertahanan',
+          'Benteng Pertahanan (Benteng Vredeburg)',
           'Gedung bersejarah masa lalu',
           'Lawang Sewu di Semarang',
-          'Benteng Vredeburg di Yogyakarta',
         ],
+        image: '/images/benteng-vredeburg.webp',
       },
     ],
     conclusion:
@@ -381,6 +419,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'gal-1',
     name: 'Candi Borobudur',
     icon: '🏯',
+    image: '/images/candi-borobudur.webp',
     kategori: 'bangunan',
     lokasi: 'Magelang, Jawa Tengah',
     fungsi: 'Tempat ibadah agama Buddha & ziarah suci',
@@ -393,6 +432,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'gal-2',
     name: 'Candi Prambanan',
     icon: '🛕',
+    image: '/images/candi-prambanan.jpg',
     kategori: 'bangunan',
     lokasi: 'Sleman, D.I. Yogyakarta',
     fungsi: 'Tempat pemujaan Trimurti (Siwa, Wisnu, Brahma) Hindu',
@@ -405,6 +445,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'gal-3',
     name: 'Masjid Agung Demak',
     icon: '🕌',
+    image: '/images/masjid-agung-demak.jpg',
     kategori: 'bangunan',
     lokasi: 'Demak, Jawa Tengah',
     fungsi: 'Tempat ibadah & pusat dakwah Walisongo',
@@ -417,6 +458,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'gal-4',
     name: 'Keraton Yogyakarta',
     icon: '👑',
+    image: '/images/keraton-yogyakarta.jpg',
     kategori: 'bangunan',
     lokasi: 'Kota Yogyakarta, D.I. Yogyakarta',
     fungsi: 'Istana tempat tinggal Sultan & pusat pelestarian budaya Jawa',
@@ -429,6 +471,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'gal-5',
     name: 'Prasasti Ciaruteun',
     icon: '🪨',
+    image: '/images/prasasti-ciaruteun.jpg',
     kategori: 'benda',
     lokasi: 'Bogor, Jawa Barat',
     fungsi: 'Dokumentasi kekuasaan Raja Purnawarman',
@@ -441,6 +484,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'gal-6',
     name: 'Arca Ganesha',
     icon: '🗿',
+    image: '/images/arca-ganesha.jpg',
     kategori: 'benda',
     lokasi: 'Berbagai Museum di Indonesia',
     fungsi: 'Simbol penghormatan dewa ilmu pengetahuan & penolak bala',
@@ -453,6 +497,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'gal-7',
     name: 'Gamelan',
     icon: '🎼',
+    image: '/images/gamelan-jawa.jpg',
     kategori: 'benda',
     lokasi: 'Jawa, Sunda, Bali',
     fungsi: 'Musik pengiring upacara adat, keraton, dan pertunjukan wayang',
@@ -465,6 +510,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     id: 'gal-8',
     name: 'Kitab Negarakertagama',
     icon: '📖',
+    image: '/images/kitab-negarakertagama.jpg',
     kategori: 'naskah',
     lokasi: 'Perpustakaan Nasional RI',
     fungsi: 'Sumber sejarah primer kejayaan Kerajaan Majapahit',
@@ -484,12 +530,12 @@ export const FAKTA_MENARIK_LIST = [
 ];
 
 export const MATCHING_GAME_ITEMS: MatchingItem[] = [
-  { id: 'match-1', icon: '🏯', name: 'Candi' },
-  { id: 'match-2', icon: '🗿', name: 'Arca' },
-  { id: 'match-3', icon: '🪨', name: 'Prasasti' },
-  { id: 'match-4', icon: '👑', name: 'Keraton' },
-  { id: 'match-5', icon: '🕌', name: 'Masjid' },
-  { id: 'match-6', icon: '🎼', name: 'Gamelan' },
+  { id: 'match-1', icon: '🏯', name: 'Candi', image: '/images/candi-borobudur.webp' },
+  { id: 'match-2', icon: '🗿', name: 'Arca', image: '/images/arca-ganesha.jpg' },
+  { id: 'match-3', icon: '🪨', name: 'Prasasti', image: '/images/prasasti-ciaruteun.jpg' },
+  { id: 'match-4', icon: '👑', name: 'Keraton', image: '/images/keraton-yogyakarta.jpg' },
+  { id: 'match-5', icon: '🕌', name: 'Masjid', image: '/images/masjid-agung-demak.jpg' },
+  { id: 'match-6', icon: '🎼', name: 'Gamelan', image: '/images/gamelan-jawa.jpg' },
 ];
 
 /**

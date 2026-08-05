@@ -43,6 +43,7 @@ export interface MaterialSubSection {
   items?: string[];
   description?: string;
   examples?: string[];
+  image?: string;
 }
 
 export interface MaterialContent {
@@ -75,6 +76,7 @@ export interface GalleryItem {
   id: string;
   name: string;
   icon: string;
+  image?: string;
   lokasi: string;
   fungsi: string;
   keunikan: string;
@@ -86,6 +88,7 @@ export interface MatchingItem {
   id: string;
   icon: string;
   name: string;
+  image?: string;
 }
 
 export interface CrosswordClue {

@@ -50,19 +50,34 @@ export const Page6Material2: React.FC = () => {
         </div>
       </Card>
 
-      {/* Illustrations */}
+      {/* Illustrations with Real Observation Photos */}
       {mat.subsections?.[0] && (
-        <Card className="bg-amber-50/60 border-amber-200 shadow-soft flex flex-col gap-2.5">
+        <Card className="bg-white border-amber-200 shadow-soft flex flex-col gap-2.5">
           <h3 className="text-xs font-black text-amber-900 uppercase tracking-wider">
             {mat.subsections[0].title}
           </h3>
-          <div className="grid grid-cols-2 gap-2">
-            {mat.subsections[0].examples?.map((ex, idx) => (
+          <div className="grid grid-cols-2 gap-2.5">
+            {[
+              { name: 'Buku Kuno', image: '/images/kitab-negarakertagama.jpg', icon: '📜' },
+              { name: 'Candi', image: '/images/candi-prambanan.jpg', icon: '🏯' },
+              { name: 'Prasasti', image: '/images/prasasti-ciaruteun.jpg', icon: '🪨' },
+              { name: 'Keraton', image: '/images/keraton-yogyakarta.jpg', icon: '👑' },
+            ].map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-center justify-center gap-2 p-3 rounded-2xl bg-white border border-amber-200 shadow-2xs font-extrabold text-xs text-[#2D3748]"
+                className="flex flex-col items-center p-2 rounded-2xl bg-amber-50/80 border border-amber-200 shadow-2xs overflow-hidden text-center"
               >
-                <span>{ex}</span>
+                <div className="w-full h-20 sm:h-24 rounded-xl overflow-hidden mb-1.5 bg-amber-100/70 border border-amber-200 relative">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="font-extrabold text-xs text-[#2D3748] leading-tight">
+                  {item.name}
+                </span>
               </div>
             ))}
           </div>

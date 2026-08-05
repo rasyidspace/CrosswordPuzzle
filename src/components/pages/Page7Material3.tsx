@@ -30,26 +30,34 @@ export const Page7Material3: React.FC = () => {
         {mat.overview}
       </p>
 
-      {/* 4 Categorized Cards */}
+      {/* 4 Categorized Cards with Real Photos */}
       <div className="grid grid-cols-2 gap-2.5">
         {mat.subsections?.map((sub, idx) => {
-          const icons = ["🏯", "🗿", "🎭", "📖"];
           return (
             <Card
               key={idx}
-              className="p-3 bg-white border-amber-200 shadow-soft flex flex-col gap-1.5"
+              className="p-2.5 bg-white border-amber-200 shadow-soft flex flex-col gap-2 overflow-hidden"
             >
-              <div className="flex items-center gap-2">
-                <span className="text-2xl">{icons[idx]}</span>
+              {sub.image && (
+                <div className="w-full h-20 sm:h-24 rounded-xl overflow-hidden bg-amber-100/70 border border-amber-200 relative">
+                  <img
+                    src={sub.image}
+                    alt={sub.title}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div>
                 <h3 className="text-xs font-black text-amber-900 leading-tight">
                   {sub.title}
                 </h3>
+                <ul className="text-[11px] font-bold text-slate-600 list-disc list-inside space-y-0.5 mt-1">
+                  {sub.examples?.map((ex, exIdx) => (
+                    <li key={exIdx}>{ex}</li>
+                  ))}
+                </ul>
               </div>
-              <ul className="text-[11px] font-bold text-slate-600 list-disc list-inside space-y-0.5 mt-1">
-                {sub.examples?.map((ex, exIdx) => (
-                  <li key={exIdx}>{ex}</li>
-                ))}
-              </ul>
             </Card>
           );
         })}

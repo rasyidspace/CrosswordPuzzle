@@ -44,19 +44,36 @@ export const Page5Material1: React.FC = () => {
         </div>
       </Card>
 
-      {/* Examples Grid */}
+      {/* Examples Grid with Real Images */}
       {mat.subsections?.[0] && (
-        <Card className="bg-amber-50/60 border-amber-200 shadow-soft flex flex-col gap-3">
+        <Card className="bg-white border-amber-200 shadow-soft flex flex-col gap-3">
           <h3 className="text-sm font-extrabold text-amber-900">
             {mat.subsections[0].title}
           </h3>
-          <div className="grid grid-cols-2 gap-2">
-            {mat.subsections[0].examples?.map((ex, idx) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+            {[
+              { name: 'Candi', image: '/images/candi-borobudur.webp', icon: '🏯' },
+              { name: 'Masjid Bersejarah', image: '/images/masjid-agung-demak.jpg', icon: '🕌' },
+              { name: 'Keraton', image: '/images/keraton-yogyakarta.jpg', icon: '👑' },
+              { name: 'Arca', image: '/images/arca-ganesha.jpg', icon: '🗿' },
+              { name: 'Prasasti', image: '/images/prasasti-ciaruteun.jpg', icon: '🪨' },
+              { name: 'Naskah Kuno', image: '/images/kitab-negarakertagama.jpg', icon: '📖' },
+            ].map((item, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-2 p-2.5 rounded-xl bg-white border border-amber-200/80 shadow-2xs font-extrabold text-xs text-[#2D3748]"
+                className="flex items-center gap-2.5 p-2 rounded-xl bg-amber-50/70 border border-amber-200/80 shadow-2xs overflow-hidden"
               >
-                <span>{ex}</span>
+                <div className="w-10 h-10 rounded-lg overflow-hidden bg-amber-100/70 border border-amber-200 shrink-0">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <span className="font-extrabold text-xs text-[#2D3748] leading-tight">
+                  {item.name}
+                </span>
               </div>
             ))}
           </div>
