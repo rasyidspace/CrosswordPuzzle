@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Lightbulb, CheckCircle2 } from "lucide-react";
 
-export const Page5Material1: React.FC = () => {
+export const Page6Material1: React.FC = () => {
   const mat = MATERIALS[1];
 
   return (

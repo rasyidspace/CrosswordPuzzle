@@ -101,7 +101,7 @@ export const Page1Opening: React.FC = () => {
           variant="outline"
           size="md"
           fullWidth
-          onClick={() => goToPage(3)}
+          onClick={() => goToPage(4)}
           className="font-extrabold"
         >
           <BookOpen className="w-5 h-5 text-amber-600 mr-1" />

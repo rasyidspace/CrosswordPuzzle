@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/Card";
 import { Check, Sparkles, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const Page4Apersepsi: React.FC = () => {
+export const Page5Apersepsi: React.FC = () => {
   const { apersepsiAnswer, setApersepsiAnswer } = useLearning();
 
   return (

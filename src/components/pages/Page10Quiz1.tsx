@@ -9,7 +9,7 @@ import { Card } from "@/components/ui/Card";
 import { CheckCircle2, RotateCcw } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-export const Page9Quiz1: React.FC = () => {
+export const Page10Quiz1: React.FC = () => {
   const { latihanAnswers, setLatihanAnswer, playSound } = useLearning();
   const [hasChecked, setHasChecked] = useState(false);
 

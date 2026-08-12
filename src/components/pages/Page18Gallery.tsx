@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { MapPin, Info, Sparkles } from "lucide-react";
 
-export const Page17Gallery: React.FC = () => {
+export const Page18Gallery: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
 
   return (

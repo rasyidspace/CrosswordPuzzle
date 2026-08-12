@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { ShieldCheck, Heart, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
-export const Page28CharacterMessage: React.FC = () => {
+export const Page29CharacterMessage: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 p-5">
       {/* Header */}

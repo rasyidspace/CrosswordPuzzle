@@ -36,18 +36,18 @@ export const BottomNav: React.FC = () => {
   // Check if current page has an active question/game requirement that must be answered correctly
   const isNextDisabled = React.useMemo(() => {
     switch (currentPage) {
-      case 4: // Apersepsi: 'opt-1' is 'Zaman dahulu' (correct answer)
+      case 5: // Apersepsi: 'opt-1' is 'Zaman dahulu' (correct answer)
         return apersepsiAnswer !== "opt-1";
 
-      case 9: // Latihan Singkat: all 3 questions must be correct
+      case 10: // Latihan Singkat: all 3 questions must be correct
         return !LATIHAN_SINGKAT_QUESTIONS.every(
           (q) => latihanAnswers[q.id] === q.correctIndex
         );
 
-      case 19: // Matching Mini Game: all 6 pairs must be matched
+      case 20: // Matching Mini Game: all 6 pairs must be matched
         return matchingMatched.length < MATCHING_GAME_ITEMS.length;
 
-      case 29: // Final Quiz: all questions must be correct
+      case 30: // Final Quiz: all questions must be correct
         return !FINAL_QUIZ_QUESTIONS.every(
           (q) => finalQuizAnswers[q.id] === q.correctIndex
         );
@@ -65,13 +65,13 @@ export const BottomNav: React.FC = () => {
 
   const getDisabledHint = () => {
     switch (currentPage) {
-      case 4:
+      case 5:
         return "Jawab pertanyaan apersepsi dengan benar untuk lanjut";
-      case 9:
+      case 10:
         return "Jawab semua soal latihan dengan benar untuk lanjut";
-      case 19:
+      case 20:
         return `Cocokkan semua pasangan (${matchingMatched.length}/${MATCHING_GAME_ITEMS.length}) untuk lanjut`;
-      case 29:
+      case 30:
         return "Jawab semua soal kuis dengan benar untuk menyelesaikan";
       default:
         return null;
@@ -83,7 +83,7 @@ export const BottomNav: React.FC = () => {
 
   const renderButtons = () => {
     switch (currentPage) {
-      case 10:
+      case 11:
         return (
           <div className="flex items-center gap-3 w-full">
             <Button
@@ -107,8 +107,8 @@ export const BottomNav: React.FC = () => {
           </div>
         );
 
-      case 20:
       case 21:
+      case 22:
         return (
           <div className="flex items-center gap-3 w-full">
             <Button
@@ -132,7 +132,7 @@ export const BottomNav: React.FC = () => {
           </div>
         );
 
-      case 22:
+      case 23:
         return (
           <div className="flex items-center gap-2 w-full">
             <Button
@@ -147,7 +147,7 @@ export const BottomNav: React.FC = () => {
             <Button
               variant="secondary"
               size="sm"
-              onClick={() => goToPage(23)}
+              onClick={() => goToPage(24)}
               className="flex-1 text-xs sm:text-sm shadow-soft font-extrabold"
             >
               Petunjuk
@@ -157,36 +157,12 @@ export const BottomNav: React.FC = () => {
               size="sm"
               onClick={() => {
                 validateCrossword();
-                goToPage(25);
+                goToPage(26);
               }}
               className="flex-1 text-xs sm:text-sm font-black shadow-soft"
             >
               <CheckCircle className="w-4 h-4" />
               Cek Jawaban
-            </Button>
-          </div>
-        );
-
-      case 23:
-        return (
-          <div className="flex items-center gap-3 w-full">
-            <Button
-              variant="outline"
-              size="md"
-              onClick={() => goToPage(22)}
-              className="flex-1 shadow-soft"
-            >
-              <ArrowLeft className="w-5 h-5" />
-              Grid TTS
-            </Button>
-            <Button
-              variant="primary"
-              size="md"
-              onClick={() => goToPage(24)}
-              className="flex-1 shadow-soft font-black"
-            >
-              Menurun
-              <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
         );
@@ -201,19 +177,16 @@ export const BottomNav: React.FC = () => {
               className="flex-1 shadow-soft"
             >
               <ArrowLeft className="w-5 h-5" />
-              Mendatar
+              Grid TTS
             </Button>
             <Button
-              variant="success"
+              variant="primary"
               size="md"
-              onClick={() => {
-                validateCrossword();
-                goToPage(25);
-              }}
-              className="flex-1 font-black shadow-soft"
+              onClick={() => goToPage(25)}
+              className="flex-1 shadow-soft font-black"
             >
-              <CheckCircle className="w-5 h-5" />
-              Cek Jawaban
+              Menurun
+              <ArrowRight className="w-5 h-5" />
             </Button>
           </div>
         );
@@ -224,23 +197,23 @@ export const BottomNav: React.FC = () => {
             <Button
               variant="outline"
               size="md"
-              onClick={() => {
-                resetCrossword();
-                goToPage(22);
-              }}
+              onClick={() => goToPage(24)}
               className="flex-1 shadow-soft"
             >
-              <RotateCcw className="w-5 h-5" />
-              Reset TTS
+              <ArrowLeft className="w-5 h-5" />
+              Mendatar
             </Button>
             <Button
-              variant="primary"
+              variant="success"
               size="md"
-              onClick={() => goToPage(26)}
+              onClick={() => {
+                validateCrossword();
+                goToPage(26);
+              }}
               className="flex-1 font-black shadow-soft"
             >
-              Lihat Hasil
-              <ArrowRight className="w-5 h-5" />
+              <CheckCircle className="w-5 h-5" />
+              Cek Jawaban
             </Button>
           </div>
         );
@@ -251,7 +224,34 @@ export const BottomNav: React.FC = () => {
             <Button
               variant="outline"
               size="md"
-              onClick={() => goToPage(22)}
+              onClick={() => {
+                resetCrossword();
+                goToPage(23);
+              }}
+              className="flex-1 shadow-soft"
+            >
+              <RotateCcw className="w-5 h-5" />
+              Reset TTS
+            </Button>
+            <Button
+              variant="primary"
+              size="md"
+              onClick={() => goToPage(27)}
+              className="flex-1 font-black shadow-soft"
+            >
+              Lihat Hasil
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+          </div>
+        );
+
+      case 27:
+        return (
+          <div className="flex items-center gap-3 w-full">
+            <Button
+              variant="outline"
+              size="md"
+              onClick={() => goToPage(23)}
               className="flex-1 shadow-soft"
             >
               <RotateCcw className="w-5 h-5" />
@@ -269,7 +269,7 @@ export const BottomNav: React.FC = () => {
           </div>
         );
 
-      case 29:
+      case 30:
         return (
           <div className="flex items-center gap-3 w-full">
             <Button
@@ -303,7 +303,7 @@ export const BottomNav: React.FC = () => {
           </div>
         );
 
-      case 30:
+      case 31:
         return (
           <div className="flex items-center gap-2 w-full">
             <Button

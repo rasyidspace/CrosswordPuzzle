@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Star, Trophy, CheckCircle, XCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
-export const Page26Result: React.FC = () => {
+export const Page27Result: React.FC = () => {
   const { validationResult, playSound } = useLearning();
 
   useEffect(() => {

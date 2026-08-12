@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Star, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
-export const Page18Facts: React.FC = () => {
+export const Page19Facts: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 p-5">
       {/* Header */}

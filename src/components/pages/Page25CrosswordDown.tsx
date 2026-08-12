@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { motion } from "framer-motion";
 
-export const Page24CrosswordDown: React.FC = () => {
+export const Page25CrosswordDown: React.FC = () => {
   const downClues = CROSSWORD_CLUES.filter((c) => c.orientation === "down");
 
   return (

@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Play, HelpCircle, CheckSquare, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
-export const Page21CrosswordIntro: React.FC = () => {
+export const Page22CrosswordIntro: React.FC = () => {
   const { nextPage } = useLearning();
 
   const rules = [

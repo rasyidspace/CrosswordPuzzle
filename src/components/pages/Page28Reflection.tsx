@@ -6,7 +6,7 @@ import { useLearning } from "@/context/LearningContext";
 import { Card } from "@/components/ui/Card";
 import { CheckSquare, Square, Heart, Sparkles } from "lucide-react";
 
-export const Page27Reflection: React.FC = () => {
+export const Page28Reflection: React.FC = () => {
   const {
     reflectionChecked,
     toggleReflectionChecked,

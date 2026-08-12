@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { CheckCircle2, Target } from "lucide-react";
 import { motion } from "framer-motion";
 
-export const Page2Objectives: React.FC = () => {
+export const Page3Objectives: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 p-5">
       {/* Header Banner */}

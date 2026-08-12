@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { ArrowDown, Lightbulb } from "lucide-react";
 import { motion } from "framer-motion";
 
-export const Page3Instructions: React.FC = () => {
+export const Page4Instructions: React.FC = () => {
   return (
     <div className="flex flex-col gap-4 p-5">
       {/* Header */}

@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/Badge";
 import { ArrowRight, HelpCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
-export const Page23CrosswordAcross: React.FC = () => {
+export const Page24CrosswordAcross: React.FC = () => {
   const acrossClues = CROSSWORD_CLUES.filter((c) => c.orientation === "across");
 
   return (

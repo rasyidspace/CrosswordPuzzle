@@ -3,7 +3,7 @@
 import React from "react";
 import { CrosswordGrid } from "@/components/games/CrosswordGrid";
 
-export const Page22CrosswordPuzzle: React.FC = () => {
+export const Page23CrosswordPuzzle: React.FC = () => {
   return (
     <div className="flex flex-col gap-3 p-4 sm:p-5">
       {/* Header */}

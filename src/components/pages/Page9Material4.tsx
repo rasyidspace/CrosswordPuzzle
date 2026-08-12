@@ -4,10 +4,10 @@ import React from "react";
 import { MATERIALS } from "@/data/storyboardData";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { Heart } from "lucide-react";
+import { Lightbulb } from "lucide-react";
 
-export const Page12Material6: React.FC = () => {
-  const mat = MATERIALS[6];
+export const Page9Material4: React.FC = () => {
+  const mat = MATERIALS[4];
 
   return (
     <div className="flex flex-col gap-4 p-5">
@@ -26,11 +26,7 @@ export const Page12Material6: React.FC = () => {
         </div>
       </div>
 
-      <p className="text-xs sm:text-sm font-bold text-slate-600">
-        {mat.overview}
-      </p>
-
-      {/* 3 Tradisi Sections */}
+      {/* 3 Building Types */}
       <div className="flex flex-col gap-3">
         {mat.subsections?.map((sub, idx) => (
           <Card
@@ -57,19 +53,34 @@ export const Page12Material6: React.FC = () => {
                 </p>
               </div>
             </div>
+            <div className="flex flex-wrap gap-1.5 pt-1.5 border-t border-amber-100">
+              {sub.examples?.map((ex, exIdx) => (
+                <span
+                  key={exIdx}
+                  className="px-2.5 py-1 rounded-xl bg-amber-50 text-[11px] font-extrabold text-amber-800 border border-amber-200"
+                >
+                  📍 {ex}
+                </span>
+              ))}
+            </div>
           </Card>
         ))}
       </div>
 
-      {/* Quote */}
-      {mat.quote && (
-        <Card className="bg-amber-100/90 border-amber-300 p-4 shadow-soft flex items-start gap-3">
+      {/* Did You Know? */}
+      {mat.didYouKnow && (
+        <Card className="bg-amber-100/90 border-amber-300 p-3.5 flex items-start gap-3 shadow-soft">
           <div className="p-1.5 rounded-xl bg-amber-500 text-white shrink-0">
-            <Heart className="w-4 h-4" />
+            <Lightbulb className="w-4 h-4" />
           </div>
-          <p className="text-xs font-black text-amber-950 leading-relaxed italic">
-            &quot;{mat.quote}&quot;
-          </p>
+          <div>
+            <span className="text-xs font-black text-amber-950 block">
+              Tahukah Kamu?
+            </span>
+            <p className="text-xs font-bold text-amber-900 leading-relaxed mt-0.5">
+              {mat.didYouKnow}
+            </p>
+          </div>
         </Card>
       )}
     </div>

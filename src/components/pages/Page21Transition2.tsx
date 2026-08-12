@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/Card";
 import { Play, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
-export const Page20Transition2: React.FC = () => {
+export const Page21Transition2: React.FC = () => {
   const { nextPage } = useLearning();
 
   return (

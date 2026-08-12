@@ -18,7 +18,7 @@ export const APP_METADATA = {
   title: 'CROSSWORD PUZZLE',
   subtitle: 'Peninggalan Sejarah Indonesia',
   tagline: 'Belajar Sambil Bermain',
-  totalPages: 30,
+  totalPages: 31,
 };
 
 export const LEARNING_OBJECTIVES: ObjectiveItem[] = [
@@ -105,7 +105,7 @@ export const APERSEPSI_DATA = {
 export const MATERIALS: Record<number, MaterialContent> = {
   1: {
     id: 'mat-1',
-    pageNumber: 5,
+    pageNumber: 6,
     badge: 'Materi 1',
     title: 'Apa itu Peninggalan Sejarah?',
     icon: '📜',
@@ -133,7 +133,7 @@ export const MATERIALS: Record<number, MaterialContent> = {
   },
   2: {
     id: 'mat-2',
-    pageNumber: 6,
+    pageNumber: 7,
     badge: 'Materi 2',
     title: 'Ciri-Ciri Peninggalan Sejarah',
     icon: '🔍',
@@ -164,7 +164,7 @@ export const MATERIALS: Record<number, MaterialContent> = {
   },
   3: {
     id: 'mat-3',
-    pageNumber: 7,
+    pageNumber: 8,
     badge: 'Materi 3',
     title: 'Jenis-Jenis Peninggalan Sejarah',
     icon: '🏛',
@@ -197,7 +197,7 @@ export const MATERIALS: Record<number, MaterialContent> = {
   },
   4: {
     id: 'mat-4',
-    pageNumber: 8,
+    pageNumber: 9,
     badge: 'Materi 4',
     title: 'Bangunan Bersejarah',
     icon: '🏯',
@@ -227,7 +227,7 @@ export const MATERIALS: Record<number, MaterialContent> = {
   },
   5: {
     id: 'mat-5',
-    pageNumber: 11,
+    pageNumber: 12,
     badge: 'Materi 5',
     title: 'Peninggalan Sejarah Berupa Benda',
     icon: '🗿',
@@ -260,7 +260,7 @@ export const MATERIALS: Record<number, MaterialContent> = {
   },
   6: {
     id: 'mat-6',
-    pageNumber: 12,
+    pageNumber: 13,
     badge: 'Materi 6',
     title: 'Tradisi dan Budaya',
     icon: '🎭',
@@ -291,7 +291,7 @@ export const MATERIALS: Record<number, MaterialContent> = {
   },
   7: {
     id: 'mat-7',
-    pageNumber: 13,
+    pageNumber: 14,
     badge: 'Materi 7',
     title: 'Naskah Kuno',
     icon: '📖',
@@ -322,7 +322,7 @@ export const MATERIALS: Record<number, MaterialContent> = {
   },
   8: {
     id: 'mat-8',
-    pageNumber: 14,
+    pageNumber: 15,
     badge: 'Materi 8',
     title: 'Peninggalan Masa Hindu dan Buddha',
     icon: '🏯',
@@ -343,7 +343,7 @@ export const MATERIALS: Record<number, MaterialContent> = {
   },
   9: {
     id: 'mat-9',
-    pageNumber: 15,
+    pageNumber: 16,
     badge: 'Materi 9',
     title: 'Peninggalan Masa Islam dan Kolonial',
     icon: '🕌',
@@ -373,7 +373,7 @@ export const MATERIALS: Record<number, MaterialContent> = {
   },
   10: {
     id: 'mat-10',
-    pageNumber: 16,
+    pageNumber: 17,
     badge: 'Materi 10',
     title: 'Mengapa Kita Harus Mempelajari Sejarah?',
     icon: '❤️',

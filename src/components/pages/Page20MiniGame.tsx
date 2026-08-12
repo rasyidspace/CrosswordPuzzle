@@ -3,7 +3,7 @@
 import React from "react";
 import { MatchingGame } from "@/components/games/MatchingGame";
 
-export const Page19MiniGame: React.FC = () => {
+export const Page20MiniGame: React.FC = () => {
   return (
     <div className="flex flex-col gap-3.5 p-5">
       {/* Header */}

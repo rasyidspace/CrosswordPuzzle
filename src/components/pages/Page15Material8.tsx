@@ -4,10 +4,10 @@ import React from "react";
 import { MATERIALS } from "@/data/storyboardData";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
-import { Lightbulb } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
-export const Page8Material4: React.FC = () => {
-  const mat = MATERIALS[4];
+export const Page15Material8: React.FC = () => {
+  const mat = MATERIALS[8];
 
   return (
     <div className="flex flex-col gap-4 p-5">
@@ -26,7 +26,7 @@ export const Page8Material4: React.FC = () => {
         </div>
       </div>
 
-      {/* 3 Building Types */}
+      {/* Hindu vs Buddha Cards */}
       <div className="flex flex-col gap-3">
         {mat.subsections?.map((sub, idx) => (
           <Card
@@ -48,37 +48,32 @@ export const Page8Material4: React.FC = () => {
                 <h3 className="text-sm font-extrabold text-amber-900">
                   {sub.title}
                 </h3>
-                <p className="text-xs font-bold text-slate-600 leading-relaxed mt-0.5">
-                  {sub.description}
-                </p>
               </div>
             </div>
-            <div className="flex flex-wrap gap-1.5 pt-1.5 border-t border-amber-100">
+            <div className="space-y-1.5 pt-1 border-t border-amber-100">
               {sub.examples?.map((ex, exIdx) => (
-                <span
-                  key={exIdx}
-                  className="px-2.5 py-1 rounded-xl bg-amber-50 text-[11px] font-extrabold text-amber-800 border border-amber-200"
-                >
-                  📍 {ex}
-                </span>
+                <div key={exIdx} className="flex items-center gap-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                  <span className="text-xs font-bold text-slate-700">{ex}</span>
+                </div>
               ))}
             </div>
           </Card>
         ))}
       </div>
 
-      {/* Did You Know? */}
-      {mat.didYouKnow && (
-        <Card className="bg-amber-100/90 border-amber-300 p-3.5 flex items-start gap-3 shadow-soft">
-          <div className="p-1.5 rounded-xl bg-amber-500 text-white shrink-0">
-            <Lightbulb className="w-4 h-4" />
+      {/* Conclusion */}
+      {mat.conclusion && (
+        <Card className="bg-emerald-50 border-emerald-300 p-4 shadow-soft flex items-start gap-3">
+          <div className="p-1.5 rounded-xl bg-emerald-500 text-white shrink-0">
+            <Sparkles className="w-4 h-4" />
           </div>
           <div>
-            <span className="text-xs font-black text-amber-950 block">
-              Tahukah Kamu?
+            <span className="text-xs font-black text-emerald-950 block">
+              Kesimpulan
             </span>
-            <p className="text-xs font-bold text-amber-900 leading-relaxed mt-0.5">
-              {mat.didYouKnow}
+            <p className="text-xs font-bold text-emerald-800 leading-relaxed mt-0.5">
+              {mat.conclusion}
             </p>
           </div>
         </Card>

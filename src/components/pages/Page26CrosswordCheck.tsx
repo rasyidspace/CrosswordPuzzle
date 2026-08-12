@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { CheckCircle2, XCircle } from "lucide-react";
 
-export const Page25CrosswordCheck: React.FC = () => {
+export const Page26CrosswordCheck: React.FC = () => {
   const { validateCrossword, validationResult } = useLearning();
 
   useEffect(() => {

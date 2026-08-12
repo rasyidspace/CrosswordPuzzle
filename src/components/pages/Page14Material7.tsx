@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { BookOpen, CheckCircle2 } from "lucide-react";
 
-export const Page13Material7: React.FC = () => {
+export const Page14Material7: React.FC = () => {
   const mat = MATERIALS[7];
 
   return (

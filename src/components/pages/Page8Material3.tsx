@@ -6,8 +6,8 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Sparkles } from "lucide-react";
 
-export const Page14Material8: React.FC = () => {
-  const mat = MATERIALS[8];
+export const Page8Material3: React.FC = () => {
+  const mat = MATERIALS[3];
 
   return (
     <div className="flex flex-col gap-4 p-5">
@@ -26,16 +26,20 @@ export const Page14Material8: React.FC = () => {
         </div>
       </div>
 
-      {/* Hindu vs Buddha Cards */}
-      <div className="flex flex-col gap-3">
-        {mat.subsections?.map((sub, idx) => (
-          <Card
-            key={idx}
-            className="p-3.5 bg-white border-amber-200 shadow-soft flex flex-col gap-2 overflow-hidden"
-          >
-            <div className="flex items-start gap-3">
+      <p className="text-xs sm:text-sm font-bold text-slate-600">
+        {mat.overview}
+      </p>
+
+      {/* 4 Categorized Cards with Real Photos */}
+      <div className="grid grid-cols-2 gap-2.5">
+        {mat.subsections?.map((sub, idx) => {
+          return (
+            <Card
+              key={idx}
+              className="p-2.5 bg-white border-amber-200 shadow-soft flex flex-col gap-2 overflow-hidden"
+            >
               {sub.image && (
-                <div className="w-16 h-16 rounded-xl overflow-hidden bg-amber-50 border border-amber-200 shrink-0">
+                <div className="w-full h-20 sm:h-24 rounded-xl overflow-hidden bg-amber-100/70 border border-amber-200 relative">
                   <img
                     src={sub.image}
                     alt={sub.title}
@@ -44,22 +48,19 @@ export const Page14Material8: React.FC = () => {
                   />
                 </div>
               )}
-              <div className="flex-1 min-w-0">
-                <h3 className="text-sm font-extrabold text-amber-900">
+              <div>
+                <h3 className="text-xs font-black text-amber-900 leading-tight">
                   {sub.title}
                 </h3>
+                <ul className="text-[11px] font-bold text-slate-600 list-disc list-inside space-y-0.5 mt-1">
+                  {sub.examples?.map((ex, exIdx) => (
+                    <li key={exIdx}>{ex}</li>
+                  ))}
+                </ul>
               </div>
-            </div>
-            <div className="space-y-1.5 pt-1 border-t border-amber-100">
-              {sub.examples?.map((ex, exIdx) => (
-                <div key={exIdx} className="flex items-center gap-2">
-                  <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
-                  <span className="text-xs font-bold text-slate-700">{ex}</span>
-                </div>
-              ))}
-            </div>
-          </Card>
-        ))}
+            </Card>
+          );
+        })}
       </div>
 
       {/* Conclusion */}

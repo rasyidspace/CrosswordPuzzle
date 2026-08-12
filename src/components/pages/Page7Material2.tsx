@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { CheckCircle2, Eye, Sparkles } from "lucide-react";
 
-export const Page6Material2: React.FC = () => {
+export const Page7Material2: React.FC = () => {
   const mat = MATERIALS[2];
   const [showAnswerHint, setShowAnswerHint] = useState(false);
 
