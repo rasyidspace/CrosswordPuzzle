@@ -565,6 +565,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 0,
     startY: 1,
     length: 9,
+    hintIndices: [0, 3, 8],
   },
   {
     id: 'm-3',
@@ -575,6 +576,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 0,
     startY: 3,
     length: 7,
+    hintIndices: [0, 4],
   },
   {
     id: 'm-5',
@@ -585,6 +587,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 3,
     startY: 10,
     length: 8,
+    hintIndices: [0, 4, 6],
   },
   {
     id: 'm-7',
@@ -595,6 +598,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 0,
     startY: 8,
     length: 7,
+    hintIndices: [0, 3],
   },
   {
     id: 'm-9',
@@ -605,6 +609,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 5,
     startY: 5,
     length: 5,
+    hintIndices: [1, 4],
   },
 
   // Down (Menurun)
@@ -617,6 +622,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 1,
     startY: 7,
     length: 5,
+    hintIndices: [0, 3],
   },
   {
     id: 'd-4',
@@ -627,6 +633,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 3,
     startY: 3,
     length: 4,
+    hintIndices: [1, 3],
   },
   {
     id: 'd-6',
@@ -637,6 +644,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 10,
     startY: 6,
     length: 6,
+    hintIndices: [0, 3],
   },
   {
     id: 'd-8',
@@ -647,6 +655,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 8,
     startY: 0,
     length: 9,
+    hintIndices: [0, 1, 6],
   },
   {
     id: 'd-10',
@@ -657,6 +666,7 @@ export const CROSSWORD_CLUES: CrosswordClue[] = [
     startX: 5,
     startY: 5,
     length: 7,
+    hintIndices: [1, 4, 6],
   },
 ];
 

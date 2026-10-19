@@ -100,6 +100,7 @@ export interface CrosswordClue {
   startX: number; // 0-indexed column
   startY: number; // 0-indexed row
   length: number;
+  hintIndices?: number[];
 }
 
 export interface CrosswordCellData {
@@ -110,6 +111,7 @@ export interface CrosswordCellData {
   acrossNum?: number;
   downNum?: number;
   isBlocked: boolean;
+  isHint?: boolean;
   status: 'empty' | 'filled' | 'correct' | 'incorrect';
 }
 

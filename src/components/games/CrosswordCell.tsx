@@ -30,9 +30,11 @@ export const CrosswordCell: React.FC<CrosswordCellProps> = ({
   useEffect(() => {
     if (isSelected && inputRef.current && !readOnly) {
       inputRef.current.focus();
-      inputRef.current.select();
+      if (!cell.isHint) {
+        inputRef.current.select();
+      }
     }
-  }, [isSelected, readOnly]);
+  }, [isSelected, readOnly, cell.isHint]);
 
   if (cell.isBlocked) {
     return (
@@ -53,10 +55,31 @@ export const CrosswordCell: React.FC<CrosswordCellProps> = ({
   } else if (isSelected) {
     bgStyle = "bg-amber-200 border-amber-600 ring-2 ring-amber-500 text-amber-950";
   } else if (isWordHighlighted) {
-    bgStyle = "bg-amber-100/90 border-amber-400 text-amber-900";
+    bgStyle = cell.isHint
+      ? "bg-amber-200/70 border-amber-500 text-amber-950 font-black"
+      : "bg-amber-100/90 border-amber-400 text-amber-900";
+  } else if (cell.isHint) {
+    bgStyle = "bg-amber-100/60 border-amber-300/90 text-amber-950 font-black";
   }
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (cell.isHint) {
+      if (e.key === "Backspace") {
+        e.preventDefault();
+        if (onMoveToPrev) onMoveToPrev();
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        if (onMoveToNext) onMoveToNext();
+      } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        if (onMoveToPrev) onMoveToPrev();
+      } else if (/^[a-zA-Z]$/.test(e.key)) {
+        e.preventDefault();
+        if (onMoveToNext) onMoveToNext();
+      }
+      return;
+    }
+
     if (e.key === "Backspace") {
       if (cell.userChar.length === 0 && onMoveToPrev) {
         onMoveToPrev();
@@ -71,6 +94,7 @@ export const CrosswordCell: React.FC<CrosswordCellProps> = ({
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (cell.isHint) return;
     const val = e.target.value;
     const lastChar = val.slice(-1).toUpperCase();
     if (/^[A-Z]$/.test(lastChar)) {
@@ -99,8 +123,18 @@ export const CrosswordCell: React.FC<CrosswordCellProps> = ({
 
       {readOnly ? (
         <span className="text-xs sm:text-base font-black uppercase">
-          {cell.userChar}
+          {cell.isHint ? cell.char : cell.userChar}
         </span>
+      ) : cell.isHint ? (
+        <input
+          ref={inputRef}
+          type="text"
+          readOnly
+          value={cell.char}
+          onKeyDown={handleKeyDown}
+          className="w-full h-full text-center text-xs sm:text-base font-black bg-transparent outline-none uppercase cursor-pointer select-none text-amber-950"
+          aria-label={`Kotak petunjuk ${cell.char} baris ${cell.row + 1} kolom ${cell.col + 1}`}
+        />
       ) : (
         <input
           ref={inputRef}

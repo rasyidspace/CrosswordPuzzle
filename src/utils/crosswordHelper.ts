@@ -16,6 +16,16 @@ export interface GridValidationResult {
   ratingBadge: string;
 }
 
+function getDefaultHintIndices(length: number): number[] {
+  if (length <= 4) {
+    return [1];
+  } else if (length <= 6) {
+    return [0, Math.floor(length / 2)];
+  } else {
+    return [0, Math.floor(length / 2), length - 1];
+  }
+}
+
 export function createInitialGrid(): CrosswordCellData[][] {
   const { rows, cols } = CROSSWORD_GRID_DIMENSIONS;
   const grid: CrosswordCellData[][] = [];
@@ -29,6 +39,7 @@ export function createInitialGrid(): CrosswordCellData[][] {
         char: '',
         userChar: '',
         isBlocked: true,
+        isHint: false,
         status: 'empty',
       });
     }
@@ -37,7 +48,12 @@ export function createInitialGrid(): CrosswordCellData[][] {
 
   // Populate active cells from clues
   CROSSWORD_CLUES.forEach((clue) => {
-    const { startX, startY, orientation, answer, number } = clue;
+    const { startX, startY, orientation, answer, number, hintIndices } = clue;
+    const effectiveHints =
+      hintIndices && hintIndices.length > 0
+        ? hintIndices
+        : getDefaultHintIndices(answer.length);
+
     for (let i = 0; i < answer.length; i++) {
       const r = orientation === 'down' ? startY + i : startY;
       const c = orientation === 'across' ? startX + i : startX;
@@ -46,6 +62,10 @@ export function createInitialGrid(): CrosswordCellData[][] {
         const cell = grid[r][c];
         cell.isBlocked = false;
         cell.char = answer[i].toUpperCase();
+
+        if (effectiveHints.includes(i)) {
+          cell.isHint = true;
+        }
 
         if (i === 0) {
           if (orientation === 'across') {
@@ -76,6 +96,17 @@ export function validateGrid(grid: CrosswordCellData[][]): {
 
       totalCells++;
       const user = cell.userChar.trim().toUpperCase();
+      const isHintCell = Boolean(cell.isHint);
+
+      if (isHintCell) {
+        totalFilled++;
+        correctCells++;
+        return {
+          ...cell,
+          status: 'correct' as const,
+        };
+      }
+
       if (user.length > 0) {
         totalFilled++;
       }

@@ -225,7 +225,13 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({
   // Crossword handlers
   const updateCellChar = useCallback(
     (row: number, col: number, char: string) => {
+      let didUpdate = false;
       setCrosswordGrid((prev) => {
+        const targetCell = prev[row]?.[col];
+        if (targetCell?.isHint) {
+          return prev;
+        }
+        didUpdate = true;
         const next = prev.map((r, rIdx) =>
           r.map((c, cIdx) => {
             if (rIdx === row && cIdx === col) {
@@ -243,7 +249,7 @@ export const LearningProvider: React.FC<{ children: React.ReactNode }> = ({
         );
         return next;
       });
-      if (char.trim().length > 0) {
+      if (didUpdate && char.trim().length > 0) {
         playSound("pop");
       }
     },

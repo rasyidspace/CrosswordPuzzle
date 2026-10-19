@@ -24,10 +24,25 @@ export const CrosswordGrid: React.FC<CrosswordGridProps> = ({
     playSound,
   } = useLearning();
 
+  // Helper to find the first editable cell of a clue
+  const getFirstEditableCell = (clue: CrosswordClue) => {
+    const isAcross = clue.orientation === "across";
+    for (let i = 0; i < clue.length; i++) {
+      const r = isAcross ? clue.startY : clue.startY + i;
+      const c = isAcross ? clue.startX + i : clue.startX;
+      const cell = crosswordGrid[r]?.[c];
+      if (cell && !cell.isBlocked && !cell.isHint) {
+        return { row: r, col: c };
+      }
+    }
+    return { row: clue.startY, col: clue.startX };
+  };
+
+  const initialClue = CROSSWORD_CLUES[0];
   const [selectedCell, setSelectedCell] = useState<{
     row: number;
     col: number;
-  } | null>({ row: 0, col: 0 });
+  } | null>(() => getFirstEditableCell(initialClue));
 
   // Get active clue object
   const currentClue: CrosswordClue | undefined = CROSSWORD_CLUES.find((c) => {
@@ -86,26 +101,36 @@ export const CrosswordGrid: React.FC<CrosswordGridProps> = ({
 
   const handleMoveToNext = (r: number, c: number) => {
     if (!currentClue) return;
-    if (currentClue.orientation === "across") {
-      if (c + 1 < currentClue.startX + currentClue.length) {
-        setSelectedCell({ row: r, col: c + 1 });
-      }
-    } else {
-      if (r + 1 < currentClue.startY + currentClue.length) {
-        setSelectedCell({ row: r + 1, col: c });
+    const isAcross = currentClue.orientation === "across";
+    const currentIndex = isAcross
+      ? c - currentClue.startX
+      : r - currentClue.startY;
+
+    for (let i = currentIndex + 1; i < currentClue.length; i++) {
+      const nextR = isAcross ? currentClue.startY : currentClue.startY + i;
+      const nextC = isAcross ? currentClue.startX + i : currentClue.startX;
+      const cell = crosswordGrid[nextR]?.[nextC];
+      if (cell && !cell.isBlocked && !cell.isHint) {
+        setSelectedCell({ row: nextR, col: nextC });
+        return;
       }
     }
   };
 
   const handleMoveToPrev = (r: number, c: number) => {
     if (!currentClue) return;
-    if (currentClue.orientation === "across") {
-      if (c - 1 >= currentClue.startX) {
-        setSelectedCell({ row: r, col: c - 1 });
-      }
-    } else {
-      if (r - 1 >= currentClue.startY) {
-        setSelectedCell({ row: r - 1, col: c });
+    const isAcross = currentClue.orientation === "across";
+    const currentIndex = isAcross
+      ? c - currentClue.startX
+      : r - currentClue.startY;
+
+    for (let i = currentIndex - 1; i >= 0; i--) {
+      const prevR = isAcross ? currentClue.startY : currentClue.startY + i;
+      const prevC = isAcross ? currentClue.startX + i : currentClue.startX;
+      const cell = crosswordGrid[prevR]?.[prevC];
+      if (cell && !cell.isBlocked && !cell.isHint) {
+        setSelectedCell({ row: prevR, col: prevC });
+        return;
       }
     }
   };
@@ -113,7 +138,8 @@ export const CrosswordGrid: React.FC<CrosswordGridProps> = ({
   const handleSelectWord = (clue: CrosswordClue) => {
     playSound("click");
     setActiveClue({ number: clue.number, orientation: clue.orientation });
-    setSelectedCell({ row: clue.startY, col: clue.startX });
+    const targetCell = getFirstEditableCell(clue);
+    setSelectedCell(targetCell);
   };
 
   return (
@@ -173,7 +199,7 @@ export const CrosswordGrid: React.FC<CrosswordGridProps> = ({
       <div className="flex flex-col gap-1.5 mt-1">
         <span className="text-[11px] font-black text-amber-900 flex items-center gap-1">
           <Compass className="w-3.5 h-3.5" />
-          Daftar Kata (Pilih untuk mengisi langsung):
+          Daftar Soal (Pilih untuk mengisi langsung):
         </span>
         <div className="flex flex-wrap gap-1.5">
           {CROSSWORD_CLUES.map((clue) => {
@@ -191,7 +217,7 @@ export const CrosswordGrid: React.FC<CrosswordGridProps> = ({
                     : "bg-white text-slate-700 border-amber-200 hover:border-amber-400"
                 }`}
               >
-                {clue.number}. {clue.answer} ({clue.orientation === "across" ? "↔" : "↕"})
+                {clue.number}. {clue.orientation === "across" ? "Mendatar" : "Menurun"}
               </button>
             );
           })}
